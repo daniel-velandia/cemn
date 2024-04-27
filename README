@@ -1,0 +1,20 @@
+# Calculadora de Ecuaciones Diferenciales Numéricas
+
+Este proyecto es una calculadora de ecuaciones diferenciales que utiliza métodos numéricos para su resolución. Fue creado como parte de un proyecto universitario para explorar y comprender los conceptos de métodos numéricos aplicados a la resolución de ecuaciones diferenciales.
+
+## Funcionalidades
+
+- Identificación del tipo de ecuación diferencial (homogénea o no homogénea).
+- Resolución de la ecuación diferencial utilizando tres métodos numéricos diferentes.
+- Presentación de tres resultados diferentes obtenidos con los métodos numéricos.
+- Interfaz web construida con Flask y Python.
+
+## Tecnologías Utilizadas
+
+- Flask: Un framework de Python para desarrollo web que se utiliza para construir la interfaz de usuario y manejar las solicitudes del servidor.
+- Python: El lenguaje de programación utilizado para la lógica del backend y los cálculos numéricos.
+- HTML/CSS: Utilizados para diseñar y dar estilo a la interfaz de usuario.
+
+## Instalación
+
+1. Clona este repositorio a tu máquina local usando Git:
