@@ -1,28 +1,76 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CEMN</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
-
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='favicon.ico') }}"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
     <div class="container">
-        <h1>Calculadora ecuaciones diferenciales por métodos numéricos</h1>
-        <form method="post">
-            <div class="input-group">
-                <label for="text">Ecuación</label>
-                <input type="text" id="text" name="text" placeholder="Ingresa la ecuación aquí">
-            </div>
-            <button type="submit">Enviar</button>
-        </form>
-        {% if text %}
-            <div class="output">
-                <p><strong>Tipo:</strong> {{ text }}</p>
-            </div>
-        {% endif %}
+      <h1>Calculadora ecuaciones diferenciales por métodos numéricos</h1>
+      <form method="post">
+        <div class="input-group">
+          <label for="text">Ecuación</label>
+          <input
+            type="text"
+            id="text"
+            name="text"
+            placeholder="Ingresa la ecuación aquí"
+          />
+        </div>
+        <button type="submit">Enviar</button>
+      </form>
+
+      {% if text %}
+      <div class="output">
+        <p><strong>Tipo:</strong> {{ text }}</p>
+      </div>
+      {% endif %}
+
+      {% if error %}
+      <div class="output">
+        <p><strong>Error:</strong> {{ error }}</p>
+      </div>
+      {% endif %} 
+
+      {% if results.euler %}
+      <h2>Resultados del método de Euler:</h2>
+      <ul>
+        {% for i in range(results.euler[0]|length) %}
+        <li>x = {{ results.euler[0][i] }}, y = {{ results.euler[1][i] }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %} 
+      
+      {% if results.runge_kutta %}
+      <h2>Resultados del método de Runge-Kutta:</h2>
+      <ul>
+        {% for i in range(results.runge_kutta[0]|length) %}
+        <li>
+          x = {{ results.runge_kutta[0][i] }}, y = {{ results.runge_kutta[1][i]
+          }}
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %} 
+      
+      {% if results.taylor %}
+      <h2>Resultados del método de Taylor:</h2>
+      <ul>
+        {% for i in range(results.taylor[0]|length) %}
+        <li>x = {{ results.taylor[0][i] }}, y = {{ results.taylor[1][i] }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
     </div>
-</body>
+  </body>
 </html>
